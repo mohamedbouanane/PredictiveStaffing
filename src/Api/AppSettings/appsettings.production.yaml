@@ -1,0 +1,38 @@
+
+# Swagger
+SwaggerUISettings:
+  Active: false
+
+# Infrastructure
+InfrastructureSettings:
+  DataBase1:
+    ConnectionStrings:
+      PrimaryConnectionString: "Data Source=app.db"
+
+# Cors
+CorsSettings:
+  PolicyName: MainPolicy
+  AllowedOrigins:
+    - http://localhost:3000
+  AllowedHeaders:
+    - Autorization
+    - Content-Type
+  AllowedMethods:
+    - GET
+    - POST
+
+# Logs
+Logging:
+  IncludeScopes: false
+  LogLevel:
+    Default: Debug
+    Microsoft: Warning
+    Microsoft.Hosting.Lifetime: Information
+
+Serilog:
+  MinimumLevel:
+    Default: "Debug"
+    Override:
+      "System": "Warning"
+      "Microsoft": "Warning"
+  Enrich: ["FromLogContext", "WithMachineName", "WithThreadId"]

@@ -1,0 +1,32 @@
+
+# Swagger
+SwaggerUISettings:
+  ActiveSwaggerUI: true
+
+AllowedHosts: "*"
+
+# Api version
+DefaultApiVersionSettings:
+  MajorVersion: 1
+  MinorVersion: 0
+  Status: ""
+
+# Https
+HttpsSettings:
+  HttpsPort: 7100
+
+# Logs
+Logging:
+  IncludeScopes: false
+  LogLevel:
+    Default: None
+
+SerilogSettings:
+  StartDir: Logs
+  FileName: log-.json
+  ApplicationName: Optimal.API
+  FileSizeLimitBytes: 104857600  # 100 MB
+  RetainedFileCountLimit: 30
+  LogsBufferSize: 1000
+  BlockWhenLogsBufferFull: true
+  ConsoleTemplate: "{Timestamp:HH:mm:ss.fff} [{Level:u3}] {Message:lj} {NewLine}{Exception}"
