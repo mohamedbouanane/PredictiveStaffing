@@ -12,15 +12,17 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, InfrastructureSettings settings)
     {
-        _ = services.AddDbContextPool<AppDbContext>(options =>
+        _ = services.AddDbContext<AppDbContext>(options =>
         {
+            ArgumentNullException.ThrowIfNull(settings);
+            ArgumentNullException.ThrowIfNull(settings.DataBase1);
+            ArgumentNullException.ThrowIfNull(settings.DataBase1.ConnectionStrings);
+            ArgumentNullException.ThrowIfNull(settings.DataBase1.ConnectionStrings.PrimaryConnectionString);
+
             options
-                .UseSqlite(settings.DataBase1.ConnectionStrings);
+                .UseSqlite(connectionString: settings.DataBase1.ConnectionStrings.PrimaryConnectionString);
 
 #if DEBUG
-            options
-            .EnableThreadSafetyChecks(enableChecks: false);
-
             options
                 .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
                 .EnableSensitiveDataLogging()

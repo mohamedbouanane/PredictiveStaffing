@@ -1,14 +1,5 @@
 # TODO
 
-- 
-A faire
-config du db context 
-ajustement des injextions
-verrificarion des entitées
-génération de la bas qslite locale
-remplire la base avec des données fake
-
-
 ### **Initialisation du projet**
 
 **Structure de base** :
@@ -35,7 +26,7 @@ Init des projets test :
 
 **Documentation** :
 
-* [ ] Créer le fichier `README.md` et Initier la doccumentation du projet.
+* [X] Créer le fichier `README.md` et Initier la doccumentation du projet.
 
 **Versionnement avec Git** :
 
@@ -66,24 +57,18 @@ Init des projets test :
 
 ---
 
-### **Versionning projet**
-
-* [X] Implémentation & Configuration du versionning des routes API REST.  `Définir la stratégie de versionning à adopter`
-
----
-
 ### **Sécurité**
 
-* [X] Implémentation & Configuration du Cors. `Identifier les Urls des clients cible`.
+* [X] Implémentation & Configuration du Cors.
 * [X] Implémentation & Configuration du Https.
 
 ---
 
 ### **Connection vers la base de données**
 
-* [ ] Dév & Configuration d'entity framwork (dbcontext) pour la base cible.
-* [ ] Dév & Configuration des entités de base.
-* [ ] Dév & Configuration du mapping Model Entités.
+* [x] Dév & Configuration d'entity framwork (dbcontext) pour la base cible.
+* [x] Dév & Configuration des entités de base.
+* [x] Dév & Configuration du mapping Model Entités.
 
 ---
 

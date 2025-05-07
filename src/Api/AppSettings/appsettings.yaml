@@ -5,15 +5,9 @@ SwaggerUISettings:
 
 AllowedHosts: "*"
 
-# Api version
-DefaultApiVersionSettings:
-  MajorVersion: 1
-  MinorVersion: 0
-  Status: ""
-
 # Https
 HttpsSettings:
-  HttpsPort: 7100
+  HttpsPort: 6000
 
 # Logs
 Logging:

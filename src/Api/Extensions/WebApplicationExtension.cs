@@ -1,10 +1,11 @@
 namespace Api.Extensions;
 
-using ServiceDefaults.Extensions.Security.Cors;
 using ServiceDefaults.Extensions.Security.Https;
+using ServiceDefaults.Extensions.Security.Cors;
 using ServiceDefaults.Extensions.SerilogLogger;
 using ServiceDefaults.Extensions.EndPoints;
 using ServiceDefaults.Extensions.SwaggerUI;
+using Infrastructure.Seeders;
 
 public static class WebApplicationExtension
 {
@@ -12,13 +13,16 @@ public static class WebApplicationExtension
     {
         ArgumentNullException.ThrowIfNull(app);
 
-        //_ = app.UseExceptionsHandlerConfiguration(environment: app.Environment);
         _ = app.UseSwaggerConfiguration();
         _ = app.UseSerilogConfiguration();
         _ = app.UseCorsPoliciesConfiguration();
         _ = app.UseHttpsConfiguration();
         _ = app.UseRestEndpointsConfiguration();
         _ = app.MapRestEndpoints();
+
+#if DEBUG
+        _ = app.UseDatabaseSeeding();
+#endif
 
         return app;
     }

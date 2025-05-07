@@ -1,27 +1,40 @@
 ﻿namespace Api.Endpoints.Controllers;
 
-using Application.Consultants.Queries.GetConsultantsWithMissions;
-using Application.Consultants.Commands.UpdateMission;
+using Application.Queries.GetConsultantsWithMissions;
+using Application.Commands.UpdateMission;
 using Microsoft.AspNetCore.Mvc;
-using Api.Dtos;
 using MediatR;
 
 [ApiController]
-[Route("api/[controller]")]
-public class ConsultantController(IMediator mediator) : ControllerBase
+[Route("api")]
+public class ConsultantController : ControllerBase
 {
-    /// <summary> Récupère tous les consultants avec leurs missions. </summary>
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    private readonly IMediator _mediator;
+
+    public ConsultantController(IMediator mediator)
     {
-        var query = new GetConsultantsWithMissionsQuery();
-        var result = await mediator.Send(query);
-        return Ok(result);
+        _mediator = mediator;
+    }
+
+    /// <summary> Récupère tous les consultants avec leurs missions. </summary>
+    [HttpGet("consultants")]
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+    {
+        try
+        {
+            var query = new GetConsultantsWithMissionsQuery();
+            var result = await _mediator.Send(query, cancellationToken);
+            return Ok(result);
+        }
+        catch (Exception ex) 
+        {
+            throw;
+        }
     }
 
     /// <summary> Met à jour la date de fin d'une mission. </summary>
-    [HttpPut("missions/{missionId}")]
-    public async Task<IActionResult> UpdateMission(int missionId, [FromBody] DateTime newEndDate)
+    [HttpPut("consultant/missions/{missionId}")]
+    public async Task<IActionResult> UpdateMission(Guid missionId, [FromBody] DateTime newEndDate, CancellationToken cancellationToken)
     {
         var command = new UpdateMissionCommand
         {
@@ -29,7 +42,7 @@ public class ConsultantController(IMediator mediator) : ControllerBase
             NewEndDate = newEndDate
         };
 
-        await mediator.Send(command);
-        return NoContent();
+        await _mediator.Send(command, cancellationToken);
+        return Ok();
     }
 }

@@ -1,13 +1,14 @@
 ﻿namespace Infrastructure.Repositories;
 
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Application.Repositories;
+using Domain.Entities;
+using Infrastructure.Contexts;
 using Infrastructure.Repositories.Common;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using Application.Repositories;
-using System.Threading.Tasks;
-using Domain.Entities;
 
-public class ConsultantRepository(DbContext dbContext) : BaseAsyncRepository<Consultant>(dbContext), IConsultantRepository
+public class ConsultantRepository(AppDbContext dbContext) : BaseAsyncRepository<Consultant>(dbContext), IConsultantRepository
 {
     public async Task<List<Consultant>> GetAllWithMissionsAsync(CancellationToken cancellationToken)
     {

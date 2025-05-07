@@ -7,13 +7,13 @@ SwaggerUISettings:
 InfrastructureSettings:
   DataBase1:
     ConnectionStrings:
-      PrimaryConnectionString: "Data Source=app.db"
+      PrimaryConnectionString: "Data Source=../../app.db"
 
 # Cors
 CorsSettings:
   PolicyName: MainPolicy
   AllowedOrigins:
-    - http://localhost:3000
+    - http://localhost:5173/
   AllowedHeaders:
     - Autorization
     - Content-Type
