@@ -1,5 +1,6 @@
 namespace Api.Extensions;
 
+using Api.Extensions.GraphQL;
 using Application;
 using Infrastructure;
 using Infrastructure.Settings;
@@ -40,6 +41,7 @@ public static class WebApplicationBuilderExtensions
     {
         _ = services.AddSerilogServices();
         _ = services.AddMemoryCache();
+        _ = services.AddGraphQLConfiguration(configuration: configuration);
         _ = services.AddRestEndpointsConfiguration();
         _ = services.AddSwaggerServices();
         _ = services.AddInfrastructureServices(configuration: configuration);

@@ -11,11 +11,15 @@ public static class CorsExtensions
         return services
             .AddCors(options => options.AddPolicy(name: settings.PolicyName,
                 builder => builder
-                    .WithOrigins(settings.AllowedOrigins)
-                    .WithHeaders(settings.AllowedHeaders)
-                    .WithMethods(settings.AllowedMethods)
-                    .SetIsOriginAllowed(allowOrigin => true)
-                    .AllowCredentials())
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    //.WithOrigins(settings.AllowedOrigins)
+                    //.WithHeaders(settings.AllowedHeaders)
+                    //.WithMethods(settings.AllowedMethods)
+                    //.SetIsOriginAllowed(allowOrigin => true)
+                    //.AllowCredentials()
+                )
             );
     }
 

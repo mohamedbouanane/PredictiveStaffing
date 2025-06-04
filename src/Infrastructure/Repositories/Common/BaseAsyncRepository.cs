@@ -11,6 +11,8 @@ public class BaseAsyncRepository<T>(DbContext dbContext) : IBaseAsyncRepository<
 {
     protected readonly DbSet<T> _dbSet = dbContext.Set<T>();
 
+    public virtual IQueryable<T> GetAll() => _dbSet;
+
     public virtual async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         return await this._dbSet.FindAsync([id], cancellationToken: cancellationToken);

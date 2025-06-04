@@ -3,6 +3,15 @@
 SwaggerUISettings:
   Active: true
 
+# GraphQL 
+GraphQLSettings:
+  PagingSettings:
+    DefaultPageSize: 10
+    MaxPageSize: 100
+    IncludeTotalCount: true
+  IncludeExceptionDetails: true
+  UseGraphQLUI: true
+
 # Infrastructure
 InfrastructureSettings:
   DataBase1:

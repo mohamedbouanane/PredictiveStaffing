@@ -6,6 +6,7 @@ using ServiceDefaults.Extensions.SerilogLogger;
 using ServiceDefaults.Extensions.EndPoints;
 using ServiceDefaults.Extensions.SwaggerUI;
 using Infrastructure.Seeders;
+using Api.Extensions.GraphQL;
 
 public static class WebApplicationExtension
 {
@@ -18,6 +19,9 @@ public static class WebApplicationExtension
         _ = app.UseCorsPoliciesConfiguration();
         _ = app.UseHttpsConfiguration();
         _ = app.UseRestEndpointsConfiguration();
+
+        _ = app.UseGraphQLConfiguration();
+
         _ = app.MapRestEndpoints();
 
 #if DEBUG

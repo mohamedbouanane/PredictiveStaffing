@@ -5,6 +5,7 @@ using Domain.Entities.Common;
 
 public interface IBaseAsyncRepository<T> where T : BaseEntity
 {
+    IQueryable<T> GetAll();
     Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
     Task<T?> FindFirstAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
     Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken);

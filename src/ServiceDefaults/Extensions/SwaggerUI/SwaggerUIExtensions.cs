@@ -37,7 +37,7 @@ public static class SwaggerUIExtensions
         var xmlDocFileName = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
         if (File.Exists(xmlDocFileName))
         {
-            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlDocFileName), includeControllerXmlComments: true);
+            options.IncludeXmlComments(System.IO.Path.Combine(AppContext.BaseDirectory, xmlDocFileName), includeControllerXmlComments: true);
             options.DocInclusionPredicate((name, api) => true);
         }
 

@@ -68,6 +68,6 @@ public static class SerilogExtensions
     private static string BuildLogFilePath(SerilogSettings parrams)
     {
         var currentProjectPath = Directory.GetCurrentDirectory();
-        return Path.Combine(currentProjectPath[..2], parrams.StartDir, currentProjectPath[3..], parrams.FileName);
+        return System.IO.Path.Combine(currentProjectPath[..2], parrams.StartDir, currentProjectPath[3..], parrams.FileName);
     }
 }
