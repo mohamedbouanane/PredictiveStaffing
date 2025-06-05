@@ -20,23 +20,6 @@
 		<PackageReference Include="MediatR" Version="12.5.0" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="GraphQL" Version="8.5.0" />
-		<PackageReference Include="GraphQL.DataLoader" Version="8.5.0" />
-		<PackageReference Include="GraphQL.SystemTextJson" Version="8.5.0" />
-		<PackageReference Include="GraphQL.MicrosoftDI" Version="8.5.0" />
-		<PackageReference Include="GraphQL.Server.Ui.Playground" Version="8.2.0" />
-		<PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="8.2.0" />
-		<PackageReference Include="GraphQL.Server.Ui.Voyager" Version="8.2.0" />
-
-		<PackageReference Include="HotChocolate.AspNetCore" Version="13.9.14" />
-		<PackageReference Include="HotChocolate.Data" Version="13.9.14" />
-		<PackageReference Include="HotChocolate.Types" Version="13.9.14" />
-		<PackageReference Include="HotChocolate.Types.CursorPagination" Version="13.9.14" />
-		<PackageReference Include="HotChocolate.Types.Filters" Version="13.9.14" />
-		<PackageReference Include="HotChocolate.Types.Sorting" Version="13.9.14" />
-	</ItemGroup>
 	
 	<ItemGroup>
 		<ProjectReference Include="..\Domain\Domain.csproj" />

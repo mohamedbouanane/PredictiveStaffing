@@ -1,4 +1,6 @@
-﻿//using Application.Repositories.Common;
+﻿// TODO INSPIRATION PUIS SUPPRIMER
+
+//using Application.Repositories.Common;
 //using Domain.Entities.Common;
 //using HotChocolate;
 //using HotChocolate.Data;

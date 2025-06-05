@@ -1,20 +1,15 @@
-﻿using Application.Repositories;
+﻿using Api.Extensions.GraphQL.Attributes;
+using Application.Repositories;
 using Domain.Entities;
-using HotChocolate;
-using HotChocolate.Data;
-using HotChocolate.Types;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Extensions.GraphQL;
 
+// [Authorize(Roles = ...)]
 [ExtendObjectType(typeof(Query))]
-public class ConsultantQueryExtensions
+public sealed class ConsultantQueryExtensions
 {
-    //[UseDbContext(typeof(TaDbContext))]
-    [UsePaging]
-    [UseProjection]
-    [HotChocolate.Data.UseFiltering]
-    [HotChocolate.Data.UseSorting]
+    // [Authorize(Roles = ...)]
+    [UseGraphQLDataPaging]
     public IQueryable<Consultant> SearchConsultants
     (
         [Service] IConsultantRepository repository

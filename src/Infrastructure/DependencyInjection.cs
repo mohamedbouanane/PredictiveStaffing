@@ -1,12 +1,14 @@
 ﻿namespace Infrastructure;
 
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Infrastructure.Repositories;
 using Application.Repositories;
+using Application.Repositories.Common;
 using Infrastructure.Contexts;
+using Infrastructure.Repositories;
+using Infrastructure.Repositories.Common;
 using Infrastructure.Settings;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 public static class DependencyInjection
 {
@@ -30,6 +32,7 @@ public static class DependencyInjection
 #endif
         });
 
+        _ = services.AddScoped(typeof(IBaseAsyncRepository<>), typeof(BaseAsyncRepository<>));
         _ = services.AddScoped<IConsultantRepository, ConsultantRepository>();
         _ = services.AddScoped<IMissionRepository, MissionRepository>();
 

@@ -1,4 +1,4 @@
-﻿namespace Api.Extensions.GraphQL;
+﻿namespace Api.Extensions.GraphQL.Settings;
 
 public sealed class PagingSettings
 {

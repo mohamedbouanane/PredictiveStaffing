@@ -5,12 +5,24 @@ SwaggerUISettings:
 
 # GraphQL 
 GraphQLSettings:
+  SchemaName: "appschema"
+  ApiPath: "/api/graphql"
+  IncludeExceptionDetails: true
+  ExecutionTimeoutSeconds: 30
+  StrictValidation: false
+  SortFieldsByName: true
+  RemoveUnreachableTypes: true
   PagingSettings:
     DefaultPageSize: 10
     MaxPageSize: 100
     IncludeTotalCount: true
-  IncludeExceptionDetails: true
-  UseGraphQLUI: true
+  BananaCakePopSettings:
+    UiPath: "/ui/graphql/"
+    ActiveUi: true
+  GraphQLVoyagerSettings:
+    UiPath: "/ui/graphql/voyager"
+    ApiPath: "/api/graphql"
+    ActiveUi: true
 
 # Infrastructure
 InfrastructureSettings:
